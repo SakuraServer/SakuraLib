@@ -27,3 +27,4 @@
 *.tmp
 /*.gitignore
 .checkstyle
+/target

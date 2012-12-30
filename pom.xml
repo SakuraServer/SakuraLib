@@ -31,7 +31,14 @@
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
-          <version>LATEST</version>
+          <version>1.4.6-R0.3-SNAPSHOT</version>
+          <scope>provided</scope>
+      </dependency>
+      <!-- CraftBukkit -->
+      <dependency>
+          <groupId>org.bukkit</groupId>
+          <artifactId>craftbukkit</artifactId>
+          <version>1.4.6-R0.3-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -72,27 +79,6 @@
                       <goals>
                           <goal>jar</goal>
                       </goals>
-                  </execution>
-              </executions>
-          </plugin>
-          <!-- Maven Shade -->
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>1.4</version>
-              <executions>
-                  <execution>
-                      <phase>package</phase>
-                      <goals>
-                          <goal>shade</goal>
-                      </goals>
-                      <configuration>
-                          <artifactSet>
-                              <includes>
-                                  <include>net.syamn:syamn*</include>
-                              </includes>
-                          </artifactSet>
-                      </configuration>
                   </execution>
               </executions>
           </plugin>
