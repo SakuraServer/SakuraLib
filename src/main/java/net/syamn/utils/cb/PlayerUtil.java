@@ -78,6 +78,7 @@ public class PlayerUtil {
      * @param player
      * @param radius
      */
+    @Deprecated
     public static void sendPlayerSleep(Player player, double radius){
         if (player.isSleeping()) return;
         final EntityPlayer ep = ((CraftPlayer) player).getHandle();

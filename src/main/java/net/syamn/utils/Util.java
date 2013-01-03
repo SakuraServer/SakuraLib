@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 /**
  * Util (Util.java)
@@ -37,9 +38,25 @@ public class Util {
     /**
      * メッセージを全員に送信する
      * @param msg
+     * @param sendConsole
+     */
+    public static void broadcastMessage(String msg, boolean sendConsole){
+        msg = coloring(msg);
+        if (sendConsole){
+            Bukkit.broadcastMessage(msg);
+        }else{
+            for (final Player player : Bukkit.getOnlinePlayers()){
+                player.sendMessage(msg);
+            }
+        }
+    }
+    
+    /**
+     * メッセージを全員に送信する
+     * @param msg
      */
     public static void broadcastMessage(String msg){
-        Bukkit.broadcastMessage(coloring(msg));
+        broadcastMessage(msg, false);
     }
     
     /**
@@ -55,11 +72,25 @@ public class Util {
     
     /**
      * カラーリングせずにメッセージを全員に送信する
-     * @param sender
+     * @param msg
+     * @param sendConsole
+     */
+    public static void broadcastRawMessage(String msg, boolean sendConsole){
+        if (sendConsole){
+            Bukkit.broadcastMessage(msg);
+        }else{
+            for (final Player player : Bukkit.getOnlinePlayers()){
+                player.sendMessage(msg);
+            }
+        }
+    }
+    
+    /**
+     * カラーリングせずにメッセージを全員に送信する
      * @param msg
      */
     public static void broadcastRawMessage(String msg){
-        Bukkit.broadcastMessage(msg);
+        broadcastRawMessage(msg, false);
     }
     
     /**
