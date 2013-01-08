@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.Plugin;
 
 /**
  * ConfirmQueue (ConfirmQueue.java)
  * @author syam(syamn)
  */
 public class ConfirmQueue {
+    private static ConfirmQueue instance = null;
     //private Plugin plugin;
     private List<QueuedCommand> queue;
 
@@ -23,9 +23,8 @@ public class ConfirmQueue {
      * 
      * @param plugin
      */
-    public ConfirmQueue(/*final Plugin plugin*/) {
+    private ConfirmQueue(/*final Plugin plugin*/) {
         //this.plugin = plugin;
-
         queue = new ArrayList<QueuedCommand>();
     }
 
@@ -80,5 +79,30 @@ public class ConfirmQueue {
         if (cmd != null) {
             this.queue.remove(cmd);
         }
+    }
+    
+    /**
+     * インスタンスを返す
+     * @return ConfirmQueue
+     */
+    public static ConfirmQueue getInstance(){
+        if (instance == null){
+            synchronized (ConfirmQueue.class) {
+                if (instance == null){
+                    instance = new ConfirmQueue();
+                }
+            }
+        }
+        return instance;
+    }
+    
+    /**
+     * インスタンスを破棄する
+     */
+    public static void dispose(){
+        if (instance != null){
+            instance.queue.clear();
+        }
+        instance = null;
     }
 }
