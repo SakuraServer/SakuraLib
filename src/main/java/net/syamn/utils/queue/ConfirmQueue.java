@@ -40,7 +40,7 @@ public class ConfirmQueue {
      * @param seconds
      *            int
      */
-    public void addQueue(CommandSender sender, Queueable queueable, List<String> args, int seconds) {
+    public void addQueue(CommandSender sender, Queueable queueable, List<Object> args, int seconds) {
         cancelQueue(sender);
         this.queue.add(new QueuedCommand(sender, queueable, args, seconds));
     }

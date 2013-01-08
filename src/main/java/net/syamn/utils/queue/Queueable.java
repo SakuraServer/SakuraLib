@@ -11,5 +11,5 @@ import java.util.List;
  * @author syam(syamn)
  */
 public interface Queueable {
-    void executeQueue(List<String> args);
+    void executeQueue(QueuedCommand queue);
 }

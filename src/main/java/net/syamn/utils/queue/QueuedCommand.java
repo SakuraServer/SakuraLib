@@ -18,12 +18,12 @@ import org.bukkit.command.CommandSender;
 public class QueuedCommand {
     private CommandSender sender;
     private Queueable queueable;
-    private List<String> args;
+    private List<Object> args;
     private int timeoutSec;
     private Calendar requestDate;
     private boolean already = false;
 
-    public QueuedCommand(CommandSender sender, Queueable queueable, List<String> args, int timeoutSec) {
+    public QueuedCommand(CommandSender sender, Queueable queueable, List<Object> args, int timeoutSec) {
         this.sender = sender;
         this.queueable = queueable;
         this.args = args;
@@ -46,7 +46,19 @@ public class QueuedCommand {
             return;
         }
         already = true;
-        this.queueable.executeQueue(this.args); // 実行
+        this.queueable.executeQueue(this); // 実行
+    }
+    
+    public List<Object> getArgs(){
+        return this.args;
+    }
+    
+    public Calendar getRequestDate(){
+        return this.requestDate;
+    }
+    
+    public int getTimeoutSec(){
+        return this.timeoutSec;
     }
 
     public CommandSender getSender() {
