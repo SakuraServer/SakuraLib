@@ -4,8 +4,6 @@
  */
 package net.syamn.utils.queue;
 
-import java.util.List;
-
 /**
  * Queueable (Queueable.java)
  * @author syam(syamn)
