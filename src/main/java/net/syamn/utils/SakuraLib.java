@@ -32,7 +32,7 @@ public class SakuraLib {
      * Economyが設定済みか返す
      * @return
      */
-    public static boolean isSetEconomy(){
-        return economy != null;
+    public static boolean isEconomyEnabled(){
+        return (economy != null && economy.isEnabled());
     }
 }

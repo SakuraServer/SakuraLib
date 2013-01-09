@@ -2,10 +2,11 @@
  * SakuraLib - Package: net.syamn.utils
  * Created: 2013/01/09 15:36:39
  */
-package net.syamn.utils;
+package net.syamn.utils.economy;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
+import net.syamn.utils.SakuraLib;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.bukkit.command.CommandSender;
