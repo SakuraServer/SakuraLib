@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * ItemUtil (ItemUtil.java)
@@ -45,5 +46,25 @@ public class ItemUtil {
      */
     public static boolean repairable(final int id){
         return possibleRepairs.contains(id);
+    }
+    
+    /**
+     * 指定した個数分アイテムを減らして返す
+     * @param itemStack 対象のItemStackオブジェクト
+     * @param amount 減らす個数が 0 以下なら何もせずに返す
+     * @return 減らした後のItemStackオブジェクト もし0なら new ItemStack(Material.AIR) を返す
+     */
+    public static ItemStack decrementItem(ItemStack itemStack, int amount) {
+        if (amount <= 0) { 
+            return itemStack;
+        }
+        
+        int nowAmount = itemStack.getAmount();
+        if ((nowAmount - amount) <= 0) {
+            return (new ItemStack(Material.AIR));
+        }
+        
+        itemStack.setAmount(nowAmount - amount);
+        return itemStack;
     }
 }
