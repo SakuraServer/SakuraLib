@@ -110,20 +110,4 @@ public class Util {
     public static String unColoring(String str){
         return str.replaceAll("\u00A7([0-9a-fk-or])", "&$1");
     }
-    
-    /**
-     * 指定した文字列がMinecraftのユーザ名として有効か返す
-     * @param name
-     * @return
-     */
-    public static boolean isValidName(final String name){
-        if (name == null) return false;
-
-        final String regex = "^[A-Za-z0-9_]{2,16}$";
-        if (!Pattern.compile(regex).matcher(name).matches()){
-            return false;
-        }
-
-        return true;
-    }
 }

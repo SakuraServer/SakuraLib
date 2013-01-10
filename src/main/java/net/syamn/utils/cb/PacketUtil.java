@@ -16,10 +16,10 @@ import org.bukkit.craftbukkit.v1_4_6.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
- * PlayerUtil (PlayerUtil.java)
+ * PacketUtil (PacketUtil.java)
  * @author syam(syamn)
  */
-public class PlayerUtil {
+public class PacketUtil {
     /**
      * 指定したプレイヤーにパケットを送る
      * @param player
