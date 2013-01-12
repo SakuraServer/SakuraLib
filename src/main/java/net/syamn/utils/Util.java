@@ -7,6 +7,7 @@ package net.syamn.utils;
 import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -60,6 +61,35 @@ public class Util {
     }
     
     /**
+     * メッセージをワールド内のプレイヤーに送信する
+     * @param world
+     * @param msg
+     * @param sendConsole
+     */
+    public static void worldcastMessage(World world, String msg, boolean sendConsole){
+        if (world == null || msg == null){
+            return;
+        }
+        msg = coloring(msg);
+        if (sendConsole){
+            message(Bukkit.getConsoleSender(), "[Worldcast][" + world.getName() + "]:" + msg);
+        }else{
+            for (final Player player : world.getPlayers()){
+                player.sendMessage(msg);
+            }
+        }
+    }
+    
+    /**
+     * メッセージをワールド内のプレイヤーに送信する
+     * @param world
+     * @param msg
+     */
+    public static void worldcastMessage(World world, String msg){
+        worldcastMessage(world, msg, false);
+    }
+    
+    /**
      * カラーリングせずにメッセージを送信する
      * @param sender
      * @param msg
@@ -91,6 +121,34 @@ public class Util {
      */
     public static void broadcastRawMessage(String msg){
         broadcastRawMessage(msg, false);
+    }
+    
+    /**
+     * メッセージをワールド内のプレイヤーに送信する
+     * @param world
+     * @param msg
+     * @param sendConsole
+     */
+    public static void worldcastRawMessage(World world, String msg, boolean sendConsole){
+        if (world == null || msg == null){
+            return;
+        }
+        if (sendConsole){
+            message(Bukkit.getConsoleSender(), "[Worldcast][" + world.getName() + "]:" + msg);
+        }else{
+            for (final Player player : world.getPlayers()){
+                player.sendMessage(msg);
+            }
+        }
+    }
+    
+    /**
+     * メッセージをワールド内のプレイヤーに送信する
+     * @param world
+     * @param msg
+     */
+    public static void worldcastRawMessage(World world, String msg){
+        worldcastRawMessage(world, msg, false);
     }
     
     /**
