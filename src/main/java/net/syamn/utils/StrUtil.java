@@ -283,4 +283,20 @@ public class StrUtil {
             "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
             "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
             "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+
+    /**
+     * 指定した文字列がMinecraftのユーザ名として有効か返す
+     * @param name
+     * @return
+     */
+    public static boolean isValidName(final String name){
+        if (name == null) return false;
+
+        final String regex = "^[A-Za-z0-9_]{2,16}$";
+        if (!Pattern.compile(regex).matcher(name).matches()){
+            return false;
+        }
+
+        return true;
+    }
 }
