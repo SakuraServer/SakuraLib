@@ -8,6 +8,9 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+
 /**
  * StrUtil (StrUtil.java)
  * 
@@ -298,5 +301,26 @@ public class StrUtil {
         }
 
         return true;
+    }
+
+    /**
+     * ブロック座標から読みやすい文字列に変換して返す
+     * @param block
+     * @return
+     */
+    public static String getLocationString(final Block block){
+        if (block == null) return null;
+        final Location loc = block.getLocation();
+        return loc.getWorld().getName() + ": " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ();
+    }
+    
+    /**
+     * 座標から読みやすい文字列に変換して返す
+     * @param Location
+     * @return
+     */
+    public static String getLocationString(final Location loc){
+        if (loc == null) return null;
+        return loc.getWorld().getName() + ": " + loc.getX() + ", " + loc.getY() + ", " + loc.getZ();
     }
 }
