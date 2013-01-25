@@ -57,7 +57,7 @@ public class Util {
      * @param msg
      */
     public static void broadcastMessage(String msg){
-        broadcastMessage(msg, false);
+        broadcastMessage(msg, true);
     }
     
     /**
