@@ -4,8 +4,13 @@
  */
 package net.syamn.utils;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import net.syamn.utils.file.TextFileHandler;
 
 import org.bukkit.plugin.Plugin;
 
@@ -59,5 +64,17 @@ public class LogUtil {
     
     public static void severe(final String message){
         logger.severe(message);
+    }
+
+    /**
+     * ログファイルに書き込み
+     * @param file ログファイル名
+     * @param line ログ内容
+     */
+    public static void log(String filepath, String line){
+            TextFileHandler r = new TextFileHandler(filepath);
+            try{
+                    r.appendLine("[" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "] " + line);
+            } catch (IOException ex) {}
     }
 }

@@ -4,6 +4,7 @@
  */
 package net.syamn.utils;
 
+import java.text.NumberFormat;
 import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
@@ -167,5 +168,33 @@ public class Util {
      */
     public static String unColoring(String str){
         return str.replaceAll("\u00A7([0-9a-fk-or])", "&$1");
+    }
+
+    /**
+     * パーセンテージを求める
+     * @param num
+     * @param total 全体値
+     * @param precision 小数点以下の桁数 負数は丸めない
+     * @return double パーセンテージ
+     */
+    public static double getPercent(int num, int total, int precision){
+            double perc = ((double) num / total) * 100;
+
+            // 丸める
+            if (precision >= 0){
+                NumberFormat format = NumberFormat.getInstance();
+                format.setMaximumFractionDigits(precision);
+                perc = Double.valueOf(format.format(perc));
+            }
+            
+            return perc;
+    }
+
+    /**
+     * コンソールからコマンドを実行する
+     * @param command
+     */
+    public static void executeCommandOnConsole(String command){
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), command);
     }
 }
