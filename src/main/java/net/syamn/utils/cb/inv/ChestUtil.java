@@ -60,7 +60,7 @@ public class ChestUtil {
      * @param z
      * @return
      */
-    public boolean openChestInventory(Player bukkitPlayer, int x, int y, int z, boolean doAnimate) {
+    public static boolean openChestInventory(Player bukkitPlayer, int x, int y, int z, boolean doAnimate) {
         EntityPlayer player = ((CraftPlayer) bukkitPlayer).getHandle();
         World world = player.world;
         Object chest = (TileEntityChest) world.getTileEntity(x, y, z);
