@@ -21,7 +21,8 @@ public class CBContainerChest extends ContainerChest{
     }
 
     @Override
-    public void b(EntityHuman entityHuman){
+    public void b(EntityHuman par1EntityPlayer){
+        // MCP - public void onCraftGuiClosed(EntityPlayer par1EntityPlayer)
         // Don't send close signal
     }
 }
