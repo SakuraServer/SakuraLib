@@ -19,17 +19,21 @@ import java.util.List;
  * @author syam(syamn)
  */
 public class TextFileHandler {
-    private final String p;
-
-    public TextFileHandler(String path) {
-        p = path;
-        if (!new File(p).exists()) {
-            try {
-                // 無ければ作る
-                new File(p).createNewFile();
-            } catch (IOException ex) {
-            }
+    private final File file;
+    
+    public TextFileHandler(File file) throws IOException {
+        if (file == null){
+            throw new IllegalArgumentException("file must be not null!");
         }
+        
+        this.file = file;
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+    }
+    
+    public TextFileHandler(String path) throws IOException {
+        this(new File(path));
     }
 
     /**
@@ -43,7 +47,7 @@ public class TextFileHandler {
         BufferedReader inputStream = null;
         List<String> data = new ArrayList<String>();
         try {
-            inputStream = new BufferedReader(new FileReader(p));
+            inputStream = new BufferedReader(new FileReader(file));
             String l;
 
             while ((l = inputStream.readLine()) != null) {
@@ -67,7 +71,7 @@ public class TextFileHandler {
     public void writeLines(List<String> data) throws IOException {
         PrintWriter outputStream = null;
         try {
-            outputStream = new PrintWriter(new FileWriter(p));
+            outputStream = new PrintWriter(new FileWriter(file));
             while (!data.isEmpty()) {
                 outputStream.println(data.remove(0));
             }
@@ -88,7 +92,7 @@ public class TextFileHandler {
     public void appendLine(String line) throws IOException {
         PrintWriter outputStream = null;
         try {
-            outputStream = new PrintWriter(new FileWriter(p, true));
+            outputStream = new PrintWriter(new FileWriter(file, true));
             outputStream.println(line);
             /* 最終処理 */
         } finally {

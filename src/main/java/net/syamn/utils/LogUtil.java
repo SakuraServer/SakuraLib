@@ -71,10 +71,14 @@ public class LogUtil {
      * @param file ログファイル名
      * @param line ログ内容
      */
-    public static void log(String filepath, String line){
+    public static void writeLog(String filepath, String line){
+        try{    
             TextFileHandler r = new TextFileHandler(filepath);
-            try{
-                    r.appendLine("[" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "] " + line);
-            } catch (IOException ex) {}
+            r.appendLine("[" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "] " + line);
+        } catch (IOException ex) {
+            if (logger != null){
+                warning("Could not write log file(" + (filepath) + "): " + ex.getMessage());
+            }
+        }
     }
 }
