@@ -72,13 +72,28 @@ public class TimeUtil {
      * @return 変換後の文字列
      */
     public static String getReadableTimeBySecond(int sec) {
-        if (sec < 0) return "0秒";
-        if (sec < 60) return sec + "秒";
-        if (sec % 60 == 0) return sec / 60 + "分";
-
-        int m = sec / 60;
-        int s = sec % 60;
-        return m + "分" + s + "秒";
+        if (sec <= 0) return "0秒";
+        
+        final int s = sec % 60;
+        final int m = (sec / 60) % 60;
+        final int h = (sec / 3600) % 24; // 60 * 60
+        final int d = (sec / 37440) % 7; // 60 * 60 * 24
+        
+        String format = "";
+        if (s > 0){
+            format = s + "秒";
+        }
+        if (m > 0){
+            format = m + "分" + format;
+        }
+        if (h > 0){
+            format = h + "時間" + format;
+        }
+        if (d > 0){
+            format = d + "日" + format;
+        }
+        
+        return format;
     }
     
     /**
@@ -87,12 +102,23 @@ public class TimeUtil {
      * @return 変換後の文字列
      */
     public static String getReadableTimeByMinute(int min){
-        if (min < 0) return "0分";
-        if (min < 60) return min + "分";
-        if (min % 60 == 0) return min / 60 + "時";
-    
-        int h = min / 60;
-        int m = min % 60;
-        return h + "時間" + m + "分";
+        if (min <= 0) return "0分";
+        
+        final int m = min % 60;
+        final int h = (min / 60) % 24;
+        final int d = (min / 1440) % 7; // 60 * 24
+        
+        String format = "";
+        if (m > 0){
+            format = m + "分";
+        }
+        if (h > 0){
+            format = h + "時間" + format;
+        }
+        if (d > 0){
+            format = d + "日" + format;
+        }
+        
+        return format;
     }
 }
