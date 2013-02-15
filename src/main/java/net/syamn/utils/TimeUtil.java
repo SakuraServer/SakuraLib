@@ -77,7 +77,7 @@ public class TimeUtil {
         final int s = sec % 60;
         final int m = (sec / 60) % 60;
         final int h = (sec / 3600) % 24; // 60 * 60
-        final int d = (sec / 37440) % 7; // 60 * 60 * 24
+        final int d = (sec / 86400) % 7; // 60 * 60 * 24
         
         String format = "";
         if (s > 0){
