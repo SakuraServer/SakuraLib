@@ -8,6 +8,7 @@ package net.syamn.utils.cb;
 import net.minecraft.server.v1_4_R1.EntityPlayer;
 import net.minecraft.server.v1_4_R1.Packet;
 import net.minecraft.server.v1_4_R1.Packet17EntityLocationAction;
+import net.minecraft.server.v1_4_R1.Packet62NamedSoundEffect;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -85,5 +86,26 @@ public class PacketUtil {
         
         Packet17EntityLocationAction packet =  new Packet17EntityLocationAction(ep, 0, (int) ep.locX, (int) ep.locY, (int) ep.locZ);
         sendPacketNearby(player.getLocation(), radius, packet);
+    }
+
+    /**
+     * クライアントにシステムサウンドを再生させる
+     * @param player
+     * @param soundName
+     * @param volume default 1.0
+     * @param pitch 0-255 default 0
+     */
+    public static void playSound(Player player, String soundName, Float volume, Float pitch){
+        Location ploc = player.getLocation();
+        sendPacket(player, new Packet62NamedSoundEffect(soundName, ploc.getX(), ploc.getY(), ploc.getZ(), volume, pitch));
+    }
+    
+    /**
+     * クライアントにシステムサウンドを再生させる
+     * @param player
+     * @param soundName
+     */
+    public static void playSound(Player player, String soundName){
+        playSound(player, soundName, 1.0F, 0F);
     }
 }
