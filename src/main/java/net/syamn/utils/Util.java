@@ -169,6 +169,15 @@ public class Util {
     public static String unColoring(String str){
         return str.replaceAll("\u00A7([0-9a-fk-or])", "&$1");
     }
+    
+    /**
+     * メッセージのカラーリングを削除する
+     * @param str
+     * @return
+     */
+    public static String stripColors(String str){
+        return str.replaceAll("(\u00A7|&)([0-9a-fk-or])", "");
+    }
 
     /**
      * パーセンテージを求める
