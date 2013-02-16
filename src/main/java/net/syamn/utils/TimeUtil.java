@@ -5,6 +5,7 @@
 package net.syamn.utils;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -50,6 +51,24 @@ public class TimeUtil {
     }
     
     /**
+     * DateからUnix秒を取得する
+     * @param date
+     * @return
+     */
+    public static Long getUnixMillisByDate(Date date){
+        return date.getTime();
+    }
+    
+    /**
+     * DateからUnix秒を取得する
+     * @param date
+     * @return
+     */
+    public static Long getUnixSecByDate(Date date){
+        return date.getTime() / 1000;
+    }
+    
+    /**
      * 日時を任意のフォーマット形式の文字列で返す
      * @return
      */
@@ -64,6 +83,21 @@ public class TimeUtil {
      */
     public static String getReadableTime(Date date) {
         return getReadableTime(date, DATE_FORMAT);
+    }
+    
+    /**
+     * 日時文字列を指定のフォーマットからDateインスタンスに変換して返す
+     * @param date
+     * @param format
+     * @return
+     */
+    public static Date parseByFormat(String date, String format){
+        DateFormat df = new SimpleDateFormat(format);
+        try {
+            return df.parse(date);
+        } catch (ParseException ex) {
+            return null;
+        }
     }
     
     /**
