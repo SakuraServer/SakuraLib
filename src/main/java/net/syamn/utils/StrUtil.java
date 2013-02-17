@@ -5,6 +5,8 @@ package net.syamn.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -340,5 +342,21 @@ public class StrUtil {
     public static String getLocationString(final Location loc){
         if (loc == null) return null;
         return loc.getWorld().getName() + ": " + loc.getX() + ", " + loc.getY() + ", " + loc.getZ();
+    }
+    
+    /**
+     * 座標から読みやすい文字列に変換して返す
+     * @param Location
+     * @param fractionDigits 小数点以下の桁数
+     * @return
+     */
+    public static String getLocationString(final Location loc, final int fractionDigits){
+        if (loc == null) return null;
+        
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(fractionDigits);
+        nf.setMinimumFractionDigits(fractionDigits);
+        
+        return loc.getWorld().getName() + ": " + nf.format(loc.getX()) + ", " + nf.format(loc.getY()) + ", " + nf.format(loc.getZ());
     }
 }
