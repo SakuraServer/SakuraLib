@@ -269,6 +269,15 @@ public class EconomyUtil {
     }
     
     /**
+     * 指定した金額での適切な単位を含めた文字列を返す
+     * @param amount
+     * @return
+     */
+    public static String getCurrencyString(double amount){
+        return SakuraLib.getEconomy().format(amount);
+    }
+    
+    /**
      * 銀行アカウント一覧を返す
      * @return
      */
