@@ -6,16 +6,16 @@ package net.syamn.utils.cb.inv;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_4_R1.Block;
-import net.minecraft.server.v1_4_R1.EntityPlayer;
-import net.minecraft.server.v1_4_R1.IInventory;
-import net.minecraft.server.v1_4_R1.InventoryLargeChest;
-import net.minecraft.server.v1_4_R1.Packet100OpenWindow;
-import net.minecraft.server.v1_4_R1.TileEntityChest;
-import net.minecraft.server.v1_4_R1.World;
+import net.minecraft.server.v1_5_R1.Block;
+import net.minecraft.server.v1_5_R1.EntityPlayer;
+import net.minecraft.server.v1_5_R1.IInventory;
+import net.minecraft.server.v1_5_R1.InventoryLargeChest;
+import net.minecraft.server.v1_5_R1.Packet100OpenWindow;
+import net.minecraft.server.v1_5_R1.TileEntityChest;
+import net.minecraft.server.v1_5_R1.World;
 import net.syamn.utils.Util;
 
-import org.bukkit.craftbukkit.v1_4_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_5_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -36,17 +36,17 @@ public class ChestUtil {
         World world = player.world;
         
         // check top block
-        if (world.s(x, y + 1, z))
+        if (world.t(x, y + 1, z))
             return true;
         
         // check around top blocks for large chest
-        if ((world.getTypeId(x - 1, y, z) == Block.CHEST.id) && (world.s(x - 1, y + 1, z)))
+        if ((world.getTypeId(x - 1, y, z) == Block.CHEST.id) && (world.t(x - 1, y + 1, z)))
             return true;
-        if ((world.getTypeId(x + 1, y, z) == Block.CHEST.id) && (world.s(x + 1, y + 1, z)))
+        if ((world.getTypeId(x + 1, y, z) == Block.CHEST.id) && (world.t(x + 1, y + 1, z)))
             return true;
-        if ((world.getTypeId(x, y, z - 1) == Block.CHEST.id) && (world.s(x, y + 1, z - 1)))
+        if ((world.getTypeId(x, y, z - 1) == Block.CHEST.id) && (world.t(x, y + 1, z - 1)))
             return true;
-        if ((world.getTypeId(x, y, z + 1) == Block.CHEST.id) && (world.s(x, y + 1, z + 1)))
+        if ((world.getTypeId(x, y, z + 1) == Block.CHEST.id) && (world.t(x, y + 1, z + 1)))
             return true;
         
         return false;   
@@ -92,7 +92,9 @@ public class ChestUtil {
                 }
                 catch (NoSuchFieldException ignore) {}
                 
-                player.playerConnection.sendPacket(new Packet100OpenWindow(id, 0, ((IInventory) chest).getName(), ((IInventory) chest).getSize()));
+                // TODO temp fix, may broken on 1.5
+                player.playerConnection.sendPacket(new Packet100OpenWindow(id, 0, ((IInventory) chest).getName(), ((IInventory) chest).getSize(), true));
+                //player.playerConnection.sendPacket(new Packet100OpenWindow(id, 0, ((IInventory) chest).getName(), ((IInventory) chest).getSize()));
                 player.activeContainer = new CBContainerChest(player.inventory, ((IInventory) chest));
                 player.activeContainer.windowId = id;
                 player.activeContainer.addSlotListener(player);
