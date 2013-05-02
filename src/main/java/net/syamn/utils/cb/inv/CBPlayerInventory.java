@@ -6,13 +6,13 @@ package net.syamn.utils.cb.inv;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_5_R2.EntityHuman;
-import net.minecraft.server.v1_5_R2.ItemStack;
-import net.minecraft.server.v1_5_R2.PlayerInventory;
+import net.minecraft.server.v1_5_R3.EntityHuman;
+import net.minecraft.server.v1_5_R3.ItemStack;
+import net.minecraft.server.v1_5_R3.PlayerInventory;
 
-import org.bukkit.craftbukkit.v1_5_R2.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_5_R2.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_5_R2.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_5_R3.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_5_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_5_R3.inventory.CraftInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
