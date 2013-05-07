@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.syamn</groupId>
   <artifactId>SakuraLib</artifactId>
-  <version>1.5.2-0.1</version>
+  <version>1.5.2-0.2</version>
   <name>Sakura Utils Library</name>
   <description>SakuraServer Plugin Utilities Library</description>
   
@@ -36,14 +36,14 @@
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
-          <version>1.5.2-R0.1-SNAPSHOT</version>
+          <version>1.5.2-R0.2-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
       <!-- CraftBukkit -->
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>craftbukkit</artifactId>
-          <version>1.5.2-R0.1-SNAPSHOT</version>
+          <version>1.5.2-R0.2-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
       <!-- Vault Dependency -->
