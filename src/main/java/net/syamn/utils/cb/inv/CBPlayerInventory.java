@@ -6,13 +6,13 @@ package net.syamn.utils.cb.inv;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_5_R3.EntityHuman;
-import net.minecraft.server.v1_5_R3.ItemStack;
-import net.minecraft.server.v1_5_R3.PlayerInventory;
+import net.minecraft.server.v1_6_R1.EntityHuman;
+import net.minecraft.server.v1_6_R1.ItemStack;
+import net.minecraft.server.v1_6_R1.PlayerInventory;
 
-import org.bukkit.craftbukkit.v1_5_R3.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_5_R3.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_5_R3.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_6_R1.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_6_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_6_R1.inventory.CraftInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -216,10 +216,10 @@ public class CBPlayerInventory extends PlayerInventory{
     
     @Override
     public String getName() {
-        if (player.name.length() > 16) {
-            return player.name.substring(0, 16);
+        if (player.getName().length() > 16) {
+            return player.getName().substring(0, 16);
         }
-        return player.name;
+        return player.getName();
     }
     
     @Override

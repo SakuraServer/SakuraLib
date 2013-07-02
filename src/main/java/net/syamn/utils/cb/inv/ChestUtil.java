@@ -6,16 +6,16 @@ package net.syamn.utils.cb.inv;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_5_R3.Block;
-import net.minecraft.server.v1_5_R3.EntityPlayer;
-import net.minecraft.server.v1_5_R3.IInventory;
-import net.minecraft.server.v1_5_R3.InventoryLargeChest;
-import net.minecraft.server.v1_5_R3.Packet100OpenWindow;
-import net.minecraft.server.v1_5_R3.TileEntityChest;
-import net.minecraft.server.v1_5_R3.World;
+import net.minecraft.server.v1_6_R1.Block;
+import net.minecraft.server.v1_6_R1.EntityPlayer;
+import net.minecraft.server.v1_6_R1.IInventory;
+import net.minecraft.server.v1_6_R1.InventoryLargeChest;
+import net.minecraft.server.v1_6_R1.Packet100OpenWindow;
+import net.minecraft.server.v1_6_R1.TileEntityChest;
+import net.minecraft.server.v1_6_R1.World;
 import net.syamn.utils.Util;
 
-import org.bukkit.craftbukkit.v1_5_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_6_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
