@@ -9,18 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.bukkit.craftbukkit.v1_6_R1.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_6_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_6_R1.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_6_R2.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_6_R2.inventory.CraftInventory;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-import net.minecraft.server.v1_6_R1.EntityHuman;
-import net.minecraft.server.v1_6_R1.InventoryEnderChest;
-import net.minecraft.server.v1_6_R1.InventorySubcontainer;
-import net.minecraft.server.v1_6_R1.ItemStack;
+import net.minecraft.server.v1_6_R2.EntityHuman;
+import net.minecraft.server.v1_6_R2.InventoryEnderChest;
+import net.minecraft.server.v1_6_R2.InventorySubcontainer;
+import net.minecraft.server.v1_6_R2.ItemStack;
 
 /**
  * CBEnderChest (CBEnderChest.java)
