@@ -6,13 +6,13 @@ package net.syamn.utils.cb.inv;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_6_R2.EntityHuman;
-import net.minecraft.server.v1_6_R2.ItemStack;
-import net.minecraft.server.v1_6_R2.PlayerInventory;
+import net.minecraft.server.v1_7_R1.EntityHuman;
+import net.minecraft.server.v1_7_R1.ItemStack;
+import net.minecraft.server.v1_7_R1.PlayerInventory;
 
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_6_R2.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R1.inventory.CraftInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -185,7 +185,7 @@ public class CBPlayerInventory extends PlayerInventory{
         
         // Effects
         if (is == this.extra) {
-            owner.getHandle().drop(itemstack);
+            owner.getHandle().drop(itemstack,true); //Purpose of this flag is unknown, setting true for the mean time
             itemstack = null;
         }
         
@@ -215,7 +215,7 @@ public class CBPlayerInventory extends PlayerInventory{
     }
     
     @Override
-    public String getName() {
+    public String getInventoryName() {
         if (player.getName().length() > 16) {
             return player.getName().substring(0, 16);
         }

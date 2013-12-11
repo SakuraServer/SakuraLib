@@ -36,21 +36,21 @@
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
-          <version>1.6.2-R0.1-SNAPSHOT</version>
+          <version>1.7.2-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
       <!-- CraftBukkit -->
       <dependency>
           <groupId>org.bukkit</groupId>
           <artifactId>craftbukkit</artifactId>
-          <version>1.6.2-R0.1-SNAPSHOT</version>
+          <version>1.7.2-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
       <!-- Vault Dependency -->
       <dependency>
           <groupId>net.milkbowl.vault</groupId>
           <artifactId>Vault</artifactId>
-          <version>1.2.26-SNAPSHOT</version>
+          <version>1.2.27-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>

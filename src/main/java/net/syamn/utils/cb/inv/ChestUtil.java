@@ -6,16 +6,16 @@ package net.syamn.utils.cb.inv;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_6_R2.Block;
-import net.minecraft.server.v1_6_R2.EntityPlayer;
-import net.minecraft.server.v1_6_R2.IInventory;
-import net.minecraft.server.v1_6_R2.InventoryLargeChest;
-import net.minecraft.server.v1_6_R2.Packet100OpenWindow;
-import net.minecraft.server.v1_6_R2.TileEntityChest;
-import net.minecraft.server.v1_6_R2.World;
+import net.minecraft.server.v1_7_R1.Blocks;
+import net.minecraft.server.v1_7_R1.EntityPlayer;
+import net.minecraft.server.v1_7_R1.IInventory;
+import net.minecraft.server.v1_7_R1.InventoryLargeChest;
+import net.minecraft.server.v1_7_R1.PacketPlayOutOpenWindow;
+import net.minecraft.server.v1_7_R1.TileEntityChest;
+import net.minecraft.server.v1_7_R1.World;
 import net.syamn.utils.Util;
 
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -40,13 +40,13 @@ public class ChestUtil {
             return true;
         
         // check around top blocks for large chest
-        if ((world.getTypeId(x - 1, y, z) == Block.CHEST.id) && (world.t(x - 1, y + 1, z)))
+        if ((world.getType(x - 1, y, z) == Blocks.CHEST) && (world.t(x - 1, y + 1, z)))
             return true;
-        if ((world.getTypeId(x + 1, y, z) == Block.CHEST.id) && (world.t(x + 1, y + 1, z)))
+        if ((world.getType(x + 1, y, z) == Blocks.CHEST) && (world.t(x + 1, y + 1, z)))
             return true;
-        if ((world.getTypeId(x, y, z - 1) == Block.CHEST.id) && (world.t(x, y + 1, z - 1)))
+        if ((world.getType(x, y, z - 1) == Blocks.CHEST) && (world.t(x, y + 1, z - 1)))
             return true;
-        if ((world.getTypeId(x, y, z + 1) == Block.CHEST.id) && (world.t(x, y + 1, z + 1)))
+        if ((world.getType(x, y, z + 1) == Blocks.CHEST) && (world.t(x, y + 1, z + 1)))
             return true;
         
         return false;   
@@ -68,13 +68,13 @@ public class ChestUtil {
             return false;
         
         final String label = "ラージチェスト";
-        if (world.getTypeId(x - 1, y, z) == Block.CHEST.id)
+        if (world.getType(x - 1, y, z) == Blocks.CHEST)
             chest = new InventoryLargeChest(label, (TileEntityChest) world.getTileEntity(x - 1, y, z), (IInventory) chest);
-        if (world.getTypeId(x + 1, y, z) == Block.CHEST.id)
+        if (world.getType(x + 1, y, z) == Blocks.CHEST)
             chest = new InventoryLargeChest(label, (IInventory) chest, (TileEntityChest) world.getTileEntity(x + 1, y, z));
-        if (world.getTypeId(x, y, z - 1) == Block.CHEST.id)
+        if (world.getType(x, y, z - 1) == Blocks.CHEST)
             chest = new InventoryLargeChest(label, (TileEntityChest) world.getTileEntity(x, y, z - 1), (IInventory) chest);
-        if (world.getTypeId(x, y, z + 1) == Block.CHEST.id)
+        if (world.getType(x, y, z + 1) == Blocks.CHEST)
             chest = new InventoryLargeChest(label, (IInventory) chest, (TileEntityChest) world.getTileEntity(x, y, z + 1));
         
         if (doAnimate) {
@@ -93,7 +93,7 @@ public class ChestUtil {
                 catch (NoSuchFieldException ignore) {}
                 
                 // TODO temp fix, may broken on 1.5
-                player.playerConnection.sendPacket(new Packet100OpenWindow(id, 0, ((IInventory) chest).getName(), ((IInventory) chest).getSize(), true));
+                player.playerConnection.sendPacket(new PacketPlayOutOpenWindow(id, 0, ((IInventory) chest).getInventoryName(), ((IInventory) chest).getSize(), true));
                 //player.playerConnection.sendPacket(new Packet100OpenWindow(id, 0, ((IInventory) chest).getName(), ((IInventory) chest).getSize()));
                 player.activeContainer = new CBContainerChest(player.inventory, ((IInventory) chest));
                 player.activeContainer.windowId = id;

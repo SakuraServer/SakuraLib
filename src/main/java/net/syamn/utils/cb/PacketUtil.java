@@ -4,15 +4,16 @@
  */
 package net.syamn.utils.cb;
 
-import net.minecraft.server.v1_6_R2.EntityPlayer;
-import net.minecraft.server.v1_6_R2.Packet;
-import net.minecraft.server.v1_6_R2.Packet17EntityLocationAction;
-import net.minecraft.server.v1_6_R2.Packet62NamedSoundEffect;
+import net.minecraft.server.v1_7_R1.EntityHuman;
+import net.minecraft.server.v1_7_R1.Packet;
+import net.minecraft.server.v1_7_R1.PacketPlayOutBed;
+import net.minecraft.server.v1_7_R1.PacketPlayOutNamedSoundEffect;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -81,9 +82,9 @@ public class PacketUtil {
     @Deprecated
     public static void sendPlayerSleep(Player player, double radius){
         if (player.isSleeping()) return;
-        final EntityPlayer ep = ((CraftPlayer) player).getHandle();
+        final EntityHuman eh = ((CraftHumanEntity) player).getHandle();
         
-        Packet17EntityLocationAction packet =  new Packet17EntityLocationAction(ep, 0, (int) ep.locX, (int) ep.locY, (int) ep.locZ);
+        PacketPlayOutBed packet =  new PacketPlayOutBed(eh, (int) eh.locX, (int) eh.locY, (int) eh.locZ);
         sendPacketNearby(player.getLocation(), radius, packet);
     }
 
@@ -96,7 +97,7 @@ public class PacketUtil {
      */
     public static void playSound(Player player, String soundName, Float volume, Float pitch){
         Location ploc = player.getLocation();
-        sendPacket(player, new Packet62NamedSoundEffect(soundName, ploc.getX(), ploc.getY(), ploc.getZ(), volume, pitch));
+        sendPacket(player, new PacketPlayOutNamedSoundEffect(soundName, ploc.getX(), ploc.getY(), ploc.getZ(), volume, pitch));
     }
     
     /**
