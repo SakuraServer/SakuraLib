@@ -6,16 +6,16 @@ package net.syamn.utils.cb.inv;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_7_R1.Blocks;
-import net.minecraft.server.v1_7_R1.EntityPlayer;
-import net.minecraft.server.v1_7_R1.IInventory;
-import net.minecraft.server.v1_7_R1.InventoryLargeChest;
-import net.minecraft.server.v1_7_R1.PacketPlayOutOpenWindow;
-import net.minecraft.server.v1_7_R1.TileEntityChest;
-import net.minecraft.server.v1_7_R1.World;
+import net.minecraft.server.v1_7_R3.Blocks;
+import net.minecraft.server.v1_7_R3.EntityPlayer;
+import net.minecraft.server.v1_7_R3.IInventory;
+import net.minecraft.server.v1_7_R3.InventoryLargeChest;
+import net.minecraft.server.v1_7_R3.PacketPlayOutOpenWindow;
+import net.minecraft.server.v1_7_R3.TileEntityChest;
+import net.minecraft.server.v1_7_R3.World;
 import net.syamn.utils.Util;
 
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -54,7 +54,7 @@ public class ChestUtil {
     
     /**
      * チェストインベントリを開く
-     * @param p
+     * @param bukkitPlayer
      * @param x
      * @param y
      * @param z

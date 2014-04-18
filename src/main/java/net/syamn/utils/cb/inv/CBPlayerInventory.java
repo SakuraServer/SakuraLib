@@ -6,13 +6,13 @@ package net.syamn.utils.cb.inv;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_7_R1.EntityHuman;
-import net.minecraft.server.v1_7_R1.ItemStack;
-import net.minecraft.server.v1_7_R1.PlayerInventory;
+import net.minecraft.server.v1_7_R3.EntityHuman;
+import net.minecraft.server.v1_7_R3.ItemStack;
+import net.minecraft.server.v1_7_R3.PlayerInventory;
 
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_7_R1.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_7_R3.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R3.inventory.CraftInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -20,7 +20,6 @@ import org.bukkit.inventory.Inventory;
  * CBPlayerInventory (CBPlayerInventory.java)
  */
 public class CBPlayerInventory extends PlayerInventory{
-    public static HashMap<String, CBPlayerInventory> inventories = new HashMap<String, CBPlayerInventory>();
     
     CraftPlayer owner;
     public boolean playerOnline = false;
@@ -42,7 +41,6 @@ public class CBPlayerInventory extends PlayerInventory{
     public void InventoryRemovalCheck() {
         if (transaction.isEmpty() && !playerOnline) {
             owner.saveData();
-            CBPlayerInventory.inventories.remove(owner.getName().toLowerCase());
         }
     }
     

@@ -4,9 +4,9 @@
  */
 package net.syamn.utils.cb.inv;
 
-import net.minecraft.server.v1_7_R1.ContainerChest;
-import net.minecraft.server.v1_7_R1.EntityHuman;
-import net.minecraft.server.v1_7_R1.IInventory;
+import net.minecraft.server.v1_7_R3.ContainerChest;
+import net.minecraft.server.v1_7_R3.EntityHuman;
+import net.minecraft.server.v1_7_R3.IInventory;
 
 /**
  * CBContainerChest (CBContainerChest.java)

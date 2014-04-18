@@ -7,39 +7,45 @@ package net.syamn.utils.cb.inv;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
-
-import net.minecraft.server.v1_7_R1.EntityPlayer;
-import net.minecraft.server.v1_7_R1.MinecraftServer;
-import net.minecraft.server.v1_7_R1.PlayerInteractManager;
+import java.util.UUID;
+import net.minecraft.server.v1_7_R3.EntityPlayer;
+import net.minecraft.server.v1_7_R3.MinecraftServer;
+import net.minecraft.server.v1_7_R3.PlayerInteractManager;
 import net.minecraft.util.com.mojang.authlib.GameProfile;
-
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_7_R1.CraftServer;
+import org.bukkit.craftbukkit.v1_7_R3.CraftServer;
+import org.bukkit.craftbukkit.v1_7_R3.CraftOfflinePlayer;
 import org.bukkit.entity.Player;
 
 /**
  * OfflineInvManager (OfflineInvManager.java)
  */
 public class OfflineInvManager {
+    @Deprecated
     public Player loadPlayer(String name) {
+        return loadPlayerByUUID(Bukkit.getOfflinePlayer(name).getUniqueId());
+    }
+    
+    public Player loadPlayerByUUID(UUID uuid) {
         try {
             // Default player folder
-            File playerfolder = new File(Bukkit.getWorlds().get(0).getWorldFolder(), "players");
-            if (!playerfolder.exists()) {
+            File playerdatafolder = new File(Bukkit.getWorlds().get(0).getWorldFolder(), "playerdata");
+            if (!playerdatafolder.exists()) {
                 return null;
             }
             
-            String playername = matchUser(Arrays.asList(playerfolder.listFiles()), name);
+            String playeruuid = matchUser(Arrays.asList(playerdatafolder.listFiles()), uuid.toString());
             
-            if (playername == null) {
+            if (playeruuid == null) {
                 return null;
             }
+            
+            GameProfile profile = ((CraftOfflinePlayer)Bukkit.getOfflinePlayer(uuid)).getProfile();
             
             MinecraftServer server = ((CraftServer) Bukkit.getServer()).getServer();
             
             // Create an entity to load the player data
-            //GameProfile is missing id, might not work properly
-            EntityPlayer entity = new EntityPlayer(server, server.getWorldServer(0), new GameProfile(null,playername), new PlayerInteractManager(server.getWorldServer(0)));
+            EntityPlayer entity = new EntityPlayer(server, server.getWorldServer(0), profile, new PlayerInteractManager(server.getWorldServer(0)));
             
             // Get the bukkit entity
             Player target = (entity == null) ? null : entity.getBukkitEntity();

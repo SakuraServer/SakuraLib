@@ -4,16 +4,16 @@
  */
 package net.syamn.utils.cb;
 
-import net.minecraft.server.v1_7_R1.EntityHuman;
-import net.minecraft.server.v1_7_R1.Packet;
-import net.minecraft.server.v1_7_R1.PacketPlayOutBed;
-import net.minecraft.server.v1_7_R1.PacketPlayOutNamedSoundEffect;
+import net.minecraft.server.v1_7_R3.EntityHuman;
+import net.minecraft.server.v1_7_R3.Packet;
+import net.minecraft.server.v1_7_R3.PacketPlayOutBed;
+import net.minecraft.server.v1_7_R3.PacketPlayOutNamedSoundEffect;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_7_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R3.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -32,8 +32,7 @@ public class PacketUtil {
     
     /**
      * オンラインプレイヤーにパケットを送る
-     * @param player
-     * @param packet
+     * @param packets
      */
     public static void sendPacketToOnline(Packet... packets){
         for (final Player player : Bukkit.getOnlinePlayers()){
@@ -68,7 +67,6 @@ public class PacketUtil {
      * 指定した座標近くのプレイヤーにパケットを送る
      * @param loc
      * @param packets
-     * @param radius
      */
     public static void sendPacketNearby(Location loc, Packet... packets){
         sendPacketNearby(loc, 64, packets);
