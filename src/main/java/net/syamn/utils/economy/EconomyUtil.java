@@ -157,7 +157,6 @@ public class EconomyUtil {
     /**
      * 銀行アカウントを削除する
      * @param bankName
-     * @param ownerPlayer
      * @return
      */
     public static boolean deleteBank(String bankName){

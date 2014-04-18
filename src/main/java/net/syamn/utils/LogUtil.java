@@ -68,7 +68,7 @@ public class LogUtil {
 
     /**
      * ログファイルに書き込み
-     * @param file ログファイル名
+     * @param filepath ログファイルパス
      * @param line ログ内容
      */
     public static void writeLog(String filepath, String line){

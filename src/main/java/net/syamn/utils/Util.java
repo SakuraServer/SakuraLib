@@ -20,7 +20,7 @@ public class Util {
     /**
      * プレイヤーにメッセージを送信する
      * @param sender
-     * @param message
+     * @param msg
      */
     public static void message(CommandSender sender, String msg) {
         if (sender != null && msg != null) {
@@ -30,8 +30,8 @@ public class Util {
     
     /**
      * プレイヤーにメッセージを送信する
-     * @param sender
-     * @param message
+     * @param name
+     * @param msg
      */
     public static void message(String name, String msg){
         message(Bukkit.getPlayerExact(name), msg);

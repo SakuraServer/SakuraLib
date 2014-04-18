@@ -36,7 +36,7 @@ public class ConfirmQueue {
      * @param queueable
      *            Queueable
      * @param args
-     *            List<String>
+     *            List&lt;String&gt;
      * @param seconds
      *            int
      */

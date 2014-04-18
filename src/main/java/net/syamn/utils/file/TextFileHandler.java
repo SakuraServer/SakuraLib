@@ -39,7 +39,7 @@ public class TextFileHandler {
     /**
      * ファイルを行ごとに全取得
      * 
-     * @return 行ごとのList<String>
+     * @return 行ごとのList&lt;String&gt;
      * @throws FileNotFoundException
      * @throws IOException
      */

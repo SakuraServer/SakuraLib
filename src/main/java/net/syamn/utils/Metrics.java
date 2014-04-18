@@ -61,9 +61,9 @@ import java.util.logging.Level;
  * Public methods provided by this class:
  * </p>
  * <code>
- * Graph createGraph(String name); <br/>
- * void addCustomData(Metrics.Plotter plotter); <br/>
- * void start(); <br/>
+ * Graph createGraph(String name); <br>
+ * void addCustomData(Metrics.Plotter plotter); <br>
+ * void start(); <br>
  * </code>
  */
 public class Metrics {

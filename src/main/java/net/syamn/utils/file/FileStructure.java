@@ -65,7 +65,7 @@ public class FileStructure {
      * @param to
      * @param force
      * @param useBuffer
-     * @param clazz
+     * @param plugin
      */
     public static void extractResource(String from, File to, boolean force, boolean useBuffer, JavaPlugin plugin/*Class<? extends JavaPlugin> clazz*/){
         File of = to;
@@ -147,7 +147,7 @@ public class FileStructure {
      * @param from
      * @param to
      * @param force
-     * @param clazz
+     * @param plugin
      */
     public static void extractResource(String from, File to, boolean force, JavaPlugin plugin){
         extractResource(from, to, force, false, plugin);

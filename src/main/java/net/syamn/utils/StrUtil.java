@@ -25,6 +25,7 @@ public class StrUtil {
      * コレクションをデリミタで結合して返す
      * @param s 結合するコレクション
      * @param delimiter デリミタ文字
+     * @param firstIndex
      * @return 結合後の文字列
      */
     public static String join(Collection<?> s, String delimiter, int firstIndex) {
@@ -100,7 +101,7 @@ public class StrUtil {
      * 列挙配列要素の中から一致する要素を返す
      * @param type 走査対象の列挙体配列
      * @param string 文字列
-     * @return <T> T or null
+     * @return &lt;T&gt; T or null
      */
     public static <T extends Enum<T>> T isMatches(T[] type, String string){
         if (type == null || string == null)
@@ -336,7 +337,7 @@ public class StrUtil {
     
     /**
      * 座標から読みやすい文字列に変換して返す
-     * @param Location
+     * @param loc
      * @return
      */
     public static String getLocationString(final Location loc){
@@ -346,7 +347,7 @@ public class StrUtil {
     
     /**
      * 座標から読みやすい文字列に変換して返す
-     * @param Location
+     * @param loc
      * @param fractionDigits 小数点以下の桁数
      * @return
      */
