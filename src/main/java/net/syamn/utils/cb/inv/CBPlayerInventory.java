@@ -20,6 +20,7 @@ import org.bukkit.inventory.Inventory;
  * CBPlayerInventory (CBPlayerInventory.java)
  */
 public class CBPlayerInventory extends PlayerInventory{
+    public static HashMap<String, CBPlayerInventory> inventories = new HashMap<String, CBPlayerInventory>();
     
     CraftPlayer owner;
     public boolean playerOnline = false;
@@ -41,6 +42,7 @@ public class CBPlayerInventory extends PlayerInventory{
     public void InventoryRemovalCheck() {
         if (transaction.isEmpty() && !playerOnline) {
             owner.saveData();
+            CBPlayerInventory.inventories.remove(owner.getName().toLowerCase());
         }
     }
     

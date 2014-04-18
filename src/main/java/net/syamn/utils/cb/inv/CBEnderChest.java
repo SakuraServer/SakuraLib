@@ -6,6 +6,7 @@ package net.syamn.utils.cb.inv;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.craftbukkit.v1_7_R3.entity.CraftHumanEntity;
@@ -25,6 +26,7 @@ import net.minecraft.server.v1_7_R3.ItemStack;
  * CBEnderChest (CBEnderChest.java)
  */
 public class CBEnderChest extends InventorySubcontainer {
+    public static HashMap<String, CBEnderChest> chests = new HashMap<String, CBEnderChest>();
     
     public List<HumanEntity> transaction = new ArrayList<HumanEntity>();
     public boolean playerOnline = false;
@@ -52,6 +54,7 @@ public class CBEnderChest extends InventorySubcontainer {
     public void InventoryRemovalCheck() {
         if (transaction.isEmpty() && !playerOnline) {
             owner.saveData();
+            chests.remove(owner.getName().toLowerCase());
         }
     }
     
