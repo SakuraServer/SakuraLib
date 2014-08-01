@@ -4,9 +4,9 @@
  */
 package net.syamn.utils.cb.inv;
 
-import net.minecraft.server.v1_7_R3.ContainerChest;
-import net.minecraft.server.v1_7_R3.EntityHuman;
-import net.minecraft.server.v1_7_R3.IInventory;
+import net.minecraft.server.v1_7_R4.ContainerChest;
+import net.minecraft.server.v1_7_R4.EntityHuman;
+import net.minecraft.server.v1_7_R4.IInventory;
 
 /**
  * CBContainerChest (CBContainerChest.java)
@@ -17,7 +17,7 @@ public class CBContainerChest extends ContainerChest{
     public CBContainerChest(IInventory i1, IInventory i2){
         super(i1, i2);
         inv = i2;
-        inv.l_();
+        inv.closeContainer();
     }
 
     @Override

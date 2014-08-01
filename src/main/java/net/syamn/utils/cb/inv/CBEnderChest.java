@@ -9,18 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.bukkit.craftbukkit.v1_7_R3.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.v1_7_R3.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_7_R3.inventory.CraftInventory;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_7_R4.inventory.CraftInventory;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-import net.minecraft.server.v1_7_R3.EntityHuman;
-import net.minecraft.server.v1_7_R3.InventoryEnderChest;
-import net.minecraft.server.v1_7_R3.InventorySubcontainer;
-import net.minecraft.server.v1_7_R3.ItemStack;
+import net.minecraft.server.v1_7_R4.EntityHuman;
+import net.minecraft.server.v1_7_R4.InventoryEnderChest;
+import net.minecraft.server.v1_7_R4.InventorySubcontainer;
+import net.minecraft.server.v1_7_R4.ItemStack;
 
 /**
  * CBEnderChest (CBEnderChest.java)
@@ -122,7 +122,7 @@ public class CBEnderChest extends InventorySubcontainer {
     }
     
     @Override
-    public void l_() {
+    public void closeContainer() {
         
     }
     
